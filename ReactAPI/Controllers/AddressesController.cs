@@ -25,7 +25,9 @@ namespace ReactAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Address>>> GetAddress()
         {
+            _context.Address.FromSql($"SELECT * FROM ADDRESS");
             return await _context.Address.ToListAsync();
+
         }
 
         // GET: api/Addresses/5
