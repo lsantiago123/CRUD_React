@@ -15,7 +15,7 @@ namespace ReactAPI.Data
             Database.EnsureCreated();
         }
 
-        public DbSet<Address> Address { get; set; }
+        public virtual DbSet<Address> Address { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<Customer> Customer { get; set; }
         // public DbSet<CustomerAddress> CustomerAddress { get; set; }

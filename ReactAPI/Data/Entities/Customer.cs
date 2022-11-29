@@ -8,7 +8,7 @@ namespace ReactAPI.Data.Entities
     public class Customer
     {
         public int CustomerID { get; set; }
-        public string? NameStyle { get; set; }
+        public bool NameStyle { get; set; }
         public string? Title { get; set; }
         public string? FirstName { get; set; }
         public string? MiddleName { get; set; }
