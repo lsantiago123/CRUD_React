@@ -13,6 +13,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactJSConecction",
+    policy => policy.WithOrigins("http://localhost:3000/")
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowAnyOrigin()
+    );
+});
+
 builder.Services.AddDbContext<AdventureWorksContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ReactJSConecction"),
@@ -32,6 +42,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("ReactJSConecction");
 
 app.UseAuthorization();
 

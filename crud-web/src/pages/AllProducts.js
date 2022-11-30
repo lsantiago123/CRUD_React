@@ -1,40 +1,39 @@
-import axios from 'axios';
-import {useEffect, useState} from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Card, Col, Row } from "react-bootstrap";
 
-function AllProducts(){
+function AllProducts() {
+  const [product, setProduct] = useState([]);
+  useEffect(() => {
+    axios.get("https://localhost:7158/api/Products").then((response) => {
+      setProduct(response.data);
+    });
+  }, []);
 
-    const [produto, setProduto] = useState([]);
-    useEffect(() => {
-        axios.get("https://localhost:").then((response) =>{ //tem que ver onde está pegando isso aqui e passar a URL
-            setProduto((existingData)=>{
-                return response.data;
-            });
-        });
-    }, []);
-    
-    return<>
-    <Row xs={1} md={3} className="g-4 mt-1">
-        {produto.map((pd)=>(
-            <Col key={pd.id}>
+  return (
+    <>
+      <Row xs={1} md={3} className="g-4 mt-1">
+        {product.map((pd) => (
+          <Col key={pd.productID}>
             <Card>
-                <Card.Img variant="top" src={pd.imageUrl}/>
-                <Card.Body>
-                    <Card.Title>{pd.produtoNome}</Card.Title>
-                    <Card.text>
-                        <b>ID</b> {pd.id}
-                    </Card.text>
-                    <Card.text>
-                        <b>Tipo</b> {pd.tipo}
-                    </Card.text>
-                    <Card.text>
-                        <b>Cor</b> {pd.cor}
-                    </Card.text>
-                </Card.Body>
+              <Card.Body>
+                <Card.Title>{pd.name}</Card.Title>
+                <Card.Text>
+                  <b>ID:</b> {pd.productID}
+                </Card.Text>
+                <Card.Text>
+                  <b>Price:</b> {pd.listPrice}
+                </Card.Text>
+                <Card.Text>
+                  <b>Color:</b> {pd.color}
+                </Card.Text>
+              </Card.Body>
             </Card>
-            </Col>
+          </Col>
         ))}
-    </Row>
-    </>;
+      </Row>
+    </>
+  );
 }
 
 export default AllProducts;

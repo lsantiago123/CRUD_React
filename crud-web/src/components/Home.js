@@ -1,9 +1,9 @@
-function Home(){
-    return(
-        <div>
-            <p>homeeeeeeeeee</p>
-        </div>
-    )
+function Home() {
+  return (
+    <div>
+      <p>Home</p>
+    </div>
+  );
 }
 
 export default Home;

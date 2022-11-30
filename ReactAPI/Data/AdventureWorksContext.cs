@@ -16,16 +16,8 @@ namespace ReactAPI.Data
         }
 
         public virtual DbSet<Address> Address { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Customer> Customer { get; set; }
-        // public DbSet<CustomerAddress> CustomerAddress { get; set; }
-        // public DbSet<ProductCategory> ProductCategory { get; set; }
-        // public DbSet<ProductDescription> ProductDescription { get; set; }
-        // public DbSet<ProductModel> ProductModel { get; set; }
-        // public DbSet<ProductModelProductDescription> ProductModelProductDescription { get; set; }
-        // public DbSet<SalesOrderDetail> SalesOrderDetail { get; set; }
-        // public DbSet<SalesOrderHeader> SalesOrderHeader { get; set; }
-
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
 
     }
 }
