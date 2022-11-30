@@ -7,6 +7,7 @@ import AllProducts from "./pages/AllProducts";
 import AllAddresses from "./pages/AllAddresses";
 import AllCustomers from "./pages/AllCustomers";
 import AddAddress from "./pages/AddAddress";
+import UpdateAddress from "./pages/UpdateAddress";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/addAddress" element={<AddAddress />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/updateAddress/:id" element={<UpdateAddress />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

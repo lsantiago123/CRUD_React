@@ -19,10 +19,10 @@ function AllAddresses() {
 
   return (
     <>
-      <div style={{float: 'right'}}>
-        <Button variant="primary" type="submit" onClick={()=> {navigate("/addAddress")}}>
-            Add a address
-          </Button>
+      <div style={{ float: 'right' }}>
+        <Button variant="primary" type="submit" onClick={() => { navigate("/addAddress") }}>
+          Add a address
+        </Button>
       </div>
       <Table striped bordered hover size="sm">
         <thead>
@@ -44,6 +44,9 @@ function AllAddresses() {
               <th>{ad.addressLine2}</th>
               <th>{ad.stateProvince}</th>
               <th>{ad.countryRegion}</th>
+              <Button variant="primary" type="submit" onClick={() => { navigate(`/updateAddress/${ad.id}`) }}> //não tenho certeza se esse ad.id está certo
+                Edit
+              </Button>
             </tr>
           ))}
         </tbody>
