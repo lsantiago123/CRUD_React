@@ -1,9 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
+import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 function AllAddresses() {
   const [address, setAddress] = useState([]);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     axios.get("https://localhost:7158/api/Addresses").then((response) => {
       setAddress(response.data);
@@ -12,6 +19,11 @@ function AllAddresses() {
 
   return (
     <>
+      <div style={{float: 'right'}}>
+        <Button variant="primary" type="submit" onClick={()=> {navigate("/addAddress")}}>
+            Add a address
+          </Button>
+      </div>
       <Table striped bordered hover size="sm">
         <thead>
           <tr>

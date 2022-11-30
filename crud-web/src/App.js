@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AllProducts from "./pages/AllProducts";
 import AllAddresses from "./pages/AllAddresses";
 import AllCustomers from "./pages/AllCustomers";
+import AddAddress from "./pages/AddAddress";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           <Route path="/products" element={<AllProducts />}></Route>
           <Route path="/addresses" element={<AllAddresses />}></Route>
           <Route path="/customers" element={<AllCustomers />}></Route>
+        </Routes>
+        <Routes>
+          <Route path="/addAddress" element={<AddAddress />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -19,7 +19,7 @@ function AllCustomers() {
             <th>First Name</th>
             <th>Middle Name</th>
             <th>Last Name</th>
-            <th>Comapny Name</th>
+            <th>Company Name</th>
             <th>Email</th>
             <th>Phone</th>
           </tr>
