@@ -15,8 +15,6 @@ namespace ReactAPI.Data.Entities
         public string? StateProvince { get; set; }
         public string? CountryRegion { get; set; }
         public string? PostalCode { get; set; }
-        public Guid rowguid { get; set; }
-        public DateTime ModifiedDate { get; set; }
 
 
     }

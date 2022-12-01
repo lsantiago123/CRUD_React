@@ -22,7 +22,6 @@ namespace ReactAPI.Data.Entities
         public DateTime? DiscontinuedDate { get; set; }
         public string? ThumbNailPhoto { get; set; }
         public string? ThumbnailPhotoFileName { get; set; }
-        public Guid rowguid { get; set; }
-        public DateTime ModifiedDate { get; set; }
+
     }
 }

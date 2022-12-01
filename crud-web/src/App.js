@@ -35,10 +35,13 @@ function App() {
           <Route path="/customers" element={<AllCustomers />}></Route>
         </Routes>
         <Routes>
-          <Route path="/addAddress" element={<AddAddress />}></Route>
+          <Route path="/addAddress" element={<AddAddress></AddAddress>}></Route>
         </Routes>
         <Routes>
-          <Route path="/updateAddress/:id" element={<UpdateAddress />}></Route>
+          <Route
+            path="/updateAddress/:id"
+            element={<UpdateAddress></UpdateAddress>}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>

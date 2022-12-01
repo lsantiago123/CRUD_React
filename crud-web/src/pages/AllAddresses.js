@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 function AllAddresses() {
   const [address, setAddress] = useState([]);
@@ -19,8 +17,14 @@ function AllAddresses() {
 
   return (
     <>
-      <div style={{ float: 'right' }}>
-        <Button variant="primary" type="submit" onClick={() => { navigate("/addAddress") }}>
+      <div style={{ float: "right" }}>
+        <Button
+          variant="primary"
+          type="submit"
+          onClick={() => {
+            navigate("/addAddress");
+          }}
+        >
           Add a address
         </Button>
       </div>
@@ -44,7 +48,16 @@ function AllAddresses() {
               <th>{ad.addressLine2}</th>
               <th>{ad.stateProvince}</th>
               <th>{ad.countryRegion}</th>
-              <Button variant="primary" type="submit" onClick={() => { navigate(`/updateAddress/${ad.id}`) }}> //não tenho certeza se esse ad.id está certo
+              <Button
+                style={{
+                  color: "black",
+                }}
+                variant="primary"
+                type="submit"
+                onClick={() => {
+                  navigate(`/updateAddress/${ad.addressID}`);
+                }}
+              >
                 Edit
               </Button>
             </tr>

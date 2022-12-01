@@ -12,7 +12,7 @@ using ReactAPI.Data;
 namespace ReactAPI.Migrations
 {
     [DbContext(typeof(AdventureWorksContext))]
-    [Migration("20221129133858_InitialCreate")]
+    [Migration("20221201142515_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -45,17 +45,11 @@ namespace ReactAPI.Migrations
                     b.Property<string>("CountryRegion")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("PostalCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StateProvince")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("rowguid")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AddressID");
 
@@ -85,9 +79,6 @@ namespace ReactAPI.Migrations
                     b.Property<string>("MiddleName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<bool>("NameStyle")
                         .HasColumnType("bit");
 
@@ -108,9 +99,6 @@ namespace ReactAPI.Migrations
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("rowguid")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CustomerID");
 
@@ -133,9 +121,6 @@ namespace ReactAPI.Migrations
 
                     b.Property<decimal?>("ListPrice")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("ModifiedDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -169,9 +154,6 @@ namespace ReactAPI.Migrations
 
                     b.Property<decimal?>("Weight")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid>("rowguid")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ProductID");
 

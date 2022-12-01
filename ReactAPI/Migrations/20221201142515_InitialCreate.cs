@@ -22,9 +22,7 @@ namespace ReactAPI.Migrations
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StateProvince = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CountryRegion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    rowguid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,9 +46,7 @@ namespace ReactAPI.Migrations
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PasswordSalt = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    rowguid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    PasswordSalt = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -76,9 +72,7 @@ namespace ReactAPI.Migrations
                     SellEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DiscontinuedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     ThumbNailPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ThumbnailPhotoFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    rowguid = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ThumbnailPhotoFileName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
