@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function UpdateAddress() {
-  //const addID = useRef("");
+  const addID = useRef("");
   const addCity = useRef("");
   const addAL1 = useRef("");
   const addAL2 = useRef("");
@@ -44,12 +44,12 @@ function UpdateAddress() {
       stateProvince: addStateP.current.value,
       countryRegion: addCountryR.current.value,
       postalCode: addPostalC.current.value,
-      addressID: id,
+      id: id,
     };
     axios
       .put("https://localhost:7158/api/Addresses", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
-        navigate("/");
+        navigate("/addresses");
       });
   }
   return (
@@ -96,7 +96,7 @@ function UpdateAddress() {
             ref={addPostalC}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={UpdateAddressHandler}>
+        <Button variant="primary" type="button" onClick={UpdateAddressHandler}>
           Submit
         </Button>
       </Form>

@@ -20,7 +20,7 @@ function AllAddresses() {
       <div style={{ float: "right" }}>
         <Button
           variant="primary"
-          type="submit"
+          type="button"
           onClick={() => {
             navigate("/addAddress");
           }}

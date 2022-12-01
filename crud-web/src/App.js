@@ -13,37 +13,35 @@ function App() {
   return (
     <div className="App">
       <h1>CRUD</h1>
-      <BrowserRouter>
-        <Nav variant="tabs">
-          <Nav.Link as={Link} to="/">
-            Home
-          </Nav.Link>
-          <Nav.Link as={Link} to="/products">
-            Products
-          </Nav.Link>
-          <Nav.Link as={Link} to="/addresses">
-            Addresses
-          </Nav.Link>
-          <Nav.Link as={Link} to="/customers">
-            Customers
-          </Nav.Link>
-        </Nav>
-        <Routes>
-          <Route path="/" index element={<Home />}></Route>
-          <Route path="/products" element={<AllProducts />}></Route>
-          <Route path="/addresses" element={<AllAddresses />}></Route>
-          <Route path="/customers" element={<AllCustomers />}></Route>
-        </Routes>
-        <Routes>
-          <Route path="/addAddress" element={<AddAddress></AddAddress>}></Route>
-        </Routes>
-        <Routes>
-          <Route
-            path="/updateAddress/:id"
-            element={<UpdateAddress></UpdateAddress>}
-          ></Route>
-        </Routes>
-      </BrowserRouter>
+      <Nav variant="tabs">
+        <Nav.Link as={Link} to="/">
+          Home
+        </Nav.Link>
+        <Nav.Link as={Link} to="/products">
+          Products
+        </Nav.Link>
+        <Nav.Link as={Link} to="/addresses">
+          Addresses
+        </Nav.Link>
+        <Nav.Link as={Link} to="/customers">
+          Customers
+        </Nav.Link>
+      </Nav>
+      <Routes>
+        <Route path="/" index element={<Home />}></Route>
+        <Route path="/products" element={<AllProducts />}></Route>
+        <Route path="/addresses" element={<AllAddresses />}></Route>
+        <Route path="/customers" element={<AllCustomers />}></Route>
+      </Routes>
+      <Routes>
+        <Route path="/addAddress" element={<AddAddress></AddAddress>}></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/updateAddress/:id"
+          element={<UpdateAddress></UpdateAddress>}
+        ></Route>
+      </Routes>
     </div>
   );
 }

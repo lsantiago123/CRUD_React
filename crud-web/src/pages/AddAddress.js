@@ -29,7 +29,7 @@ function AddAddress() {
     axios
       .post("https://localhost:7158/api/Addresses", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
-        navigate("/");
+        navigate("/addresses");
       });
   }
 
@@ -77,7 +77,7 @@ function AddAddress() {
             ref={addPostalC}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={AddAddressHandler}>
+        <Button variant="primary" type="button" onClick={AddAddressHandler}>
           Submit
         </Button>
       </Form>

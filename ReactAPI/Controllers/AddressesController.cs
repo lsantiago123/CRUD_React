@@ -36,12 +36,7 @@ namespace ReactAPI.Controllers
         {
             var address = await _context.Address.FindAsync(id);
 
-            if (address == null)
-            {
-                return NotFound();
-            }
-
-            return address;
+            return Ok(address);
         }
 
         // PUT: api/Addresses/5
@@ -49,30 +44,9 @@ namespace ReactAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddress(int id, Address address)
         {
-            if (id != address.AddressID)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(address).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AddressExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            _context.Address.Update(address);
+            await _context.SaveChangesAsync();
+            return Ok(address);
         }
 
         // POST: api/Addresses
@@ -83,7 +57,7 @@ namespace ReactAPI.Controllers
             _context.Address.Add(address);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAddress", new { id = address.AddressID }, address);
+            return Ok(address);
         }
 
         // DELETE: api/Addresses/5
