@@ -19,7 +19,6 @@ function AllAddresses() {
   }, []);
 
   function showConfirmPopupHandler(addressID) {
-    //ele colocou id aqui mas não tenho certeza se é certo, 2:34:26
     setShowModal(true);
     setItemToDelete(addressID); //2:35:37
   }
@@ -34,7 +33,6 @@ function AllAddresses() {
       .delete(`https://localhost:7158/api/Addresses/${itemToDelete}`)
       .then((response) => {
         setAddress((existingdata) => {
-          //vou fazer q nem o dele, mas vai dar errado eu acho 2:37:51
           return existingdata.filter((_) => _.addressID !== itemToDelete);
         });
         setItemToDelete(0);
@@ -71,6 +69,7 @@ function AllAddresses() {
             <th>Address Line2</th>
             <th>State Province</th>
             <th>Country Region</th>
+            <th>Postal Code</th>
           </tr>
         </thead>
         <tbody>
@@ -82,6 +81,7 @@ function AllAddresses() {
               <th>{ad.addressLine2}</th>
               <th>{ad.stateProvince}</th>
               <th>{ad.countryRegion}</th>
+              <th>{ad.postalCode}</th>
               <Button
                 style={{
                   color: "white",
@@ -95,6 +95,7 @@ function AllAddresses() {
               >
                 Edit
               </Button>
+              <th></th>
               <Button
                 style={{
                   color: "white",
@@ -104,7 +105,7 @@ function AllAddresses() {
                 type="button"
                 onClick={() => {
                   showConfirmPopupHandler(ad.addressID);
-                }} //tbm não tenho certeza se está certo 2:35:17
+                }}
               >
                 Delete
               </Button>

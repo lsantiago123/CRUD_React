@@ -8,6 +8,10 @@ import AllAddresses from "./pages/AllAddresses";
 import AllCustomers from "./pages/AllCustomers";
 import AddAddress from "./pages/AddAddress";
 import UpdateAddress from "./pages/UpdateAddress";
+import UpdateCustomer from "./pages/UpdateCostumer";
+import UpdateProduct from "./pages/UpdateProduct";
+import AddCustomer from "./pages/AddCustomer";
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   return (
@@ -38,8 +42,29 @@ function App() {
       </Routes>
       <Routes>
         <Route
+          path="/addCustomer"
+          element={<AddCustomer></AddCustomer>}
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route path="/addProduct" element={<AddProduct></AddProduct>}></Route>
+      </Routes>
+      <Routes>
+        <Route
           path="/updateAddress/:id"
           element={<UpdateAddress></UpdateAddress>}
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/updateCustomer/:id"
+          element={<UpdateCustomer></UpdateCustomer>}
+        ></Route>
+      </Routes>
+      <Routes>
+        <Route
+          path="/updateProduct/:id"
+          element={<UpdateProduct></UpdateProduct>}
         ></Route>
       </Routes>
     </div>
