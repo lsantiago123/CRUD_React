@@ -42,11 +42,11 @@ namespace ReactAPI.Controllers
         // PUT: api/Addresses/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAddress(int id, Address address)
+        public async Task<IActionResult> PutAddress(Address addressUp)
         {
-            _context.Address.Update(address);
+            _context.Address.Update(addressUp);
             await _context.SaveChangesAsync();
-            return Ok(address);
+            return Ok(addressUp);
         }
 
         // POST: api/Addresses

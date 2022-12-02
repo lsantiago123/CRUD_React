@@ -18,38 +18,39 @@ function AllAddresses() {
     });
   }, []);
 
-  function showConfirmPopupHandler(id){ //ele colocou id aqui mas não tenho certeza se é certo, 2:34:26
+  function showConfirmPopupHandler(addressID) {
+    //ele colocou id aqui mas não tenho certeza se é certo, 2:34:26
     setShowModal(true);
-    setItemToDelete(id); //2:35:37
+    setItemToDelete(addressID); //2:35:37
   }
 
-  function closeConfirmPopupHandler(){
+  function closeConfirmPopupHandler() {
     setShowModal(false);
     setItemToDelete(0); //2:38:58
   }
 
-  function deleteConfirmHandler(){
-    axios.delete(`https://localhost:7158/api/Addresses/${itemToDelete}`)
-    .then((response)=>{
-      setAddress((existingdata)=>{        //vou fazer q nem o dele, mas vai dar errado eu acho 2:37:51
-        return existingdata.filter(_ => _.id !== itemToDelete)
-      })
-      setItemToDelete(0);
-      setShowModal(false);
-    });
+  function deleteConfirmHandler() {
+    axios
+      .delete(`https://localhost:7158/api/Addresses/${itemToDelete}`)
+      .then((response) => {
+        setAddress((existingdata) => {
+          //vou fazer q nem o dele, mas vai dar errado eu acho 2:37:51
+          return existingdata.filter((_) => _.addressID !== itemToDelete);
+        });
+        setItemToDelete(0);
+        setShowModal(false);
+      });
   }
 
   return (
     <>
-    <DeleteConfirmation
-    showModal={showModal}
-    title = "Delete Confirmation!"
-    body = "Are sure to delete the item?"
-    closeConfirmPopupHandler = {closeConfirmPopupHandler}
-    deleteConfirmHandler = {deleteConfirmHandler}
-    >
-
-    </DeleteConfirmation>
+      <DeleteConfirmation
+        showModal={showModal}
+        title="Delete Confirmation!"
+        body="Are you sure you want to delete this item?"
+        closeConfirmPopupHandler={closeConfirmPopupHandler}
+        deleteConfirmHandler={deleteConfirmHandler}
+      ></DeleteConfirmation>
       <div style={{ float: "right" }}>
         <Button
           variant="primary"
@@ -83,7 +84,8 @@ function AllAddresses() {
               <th>{ad.countryRegion}</th>
               <Button
                 style={{
-                  color: "black",
+                  color: "white",
+                  backgroundColor: "#0d6efd",
                 }}
                 variant="primary"
                 type="button"
@@ -95,13 +97,16 @@ function AllAddresses() {
               </Button>
               <Button
                 style={{
-                  color: "black",
+                  color: "white",
+                  backgroundColor: "red",
                 }}
                 variant="danger"
                 type="button"
-                onClick={()=>{showConfirmPopupHandler(ad.id); }} //tbm não tenho certeza se está certo 2:35:17
+                onClick={() => {
+                  showConfirmPopupHandler(ad.addressID);
+                }} //tbm não tenho certeza se está certo 2:35:17
               >
-                Edit
+                Delete
               </Button>
             </tr>
           ))}

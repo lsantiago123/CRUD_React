@@ -23,13 +23,14 @@ function UpdateAddress() {
       .get(`https://localhost:7158/api/Addresses/${id}`) //mesmo link do axios do AddAddress 2:04:42
       .then((response) => {
         //tem que pegar como está na tabela, 2:06:00 // 2:07:55
-        //addID.current.value = response.data.addressID;
+
         addAL1.current.value = response.data.addressLine1;
         addAL2.current.value = response.data.addressLine2;
         addCity.current.value = response.data.city;
         addStateP.current.value = response.data.stateProvince;
         addCountryR.current.value = response.data.countryRegion;
         addPostalC.current.value = response.data.postalCode;
+        addID.current.value = response.data.addressID;
         //id: id;
       });
   }, []);
@@ -44,10 +45,10 @@ function UpdateAddress() {
       stateProvince: addStateP.current.value,
       countryRegion: addCountryR.current.value,
       postalCode: addPostalC.current.value,
-      id: id,
+      addressID: id,
     };
     axios
-      .put("https://localhost:7158/api/Addresses", payload) //tem q colocar o link aqui(1:33:00)
+      .put("https://localhost:7158/api/Addresses/${id}", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
         navigate("/addresses");
       });
