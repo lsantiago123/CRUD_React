@@ -20,7 +20,7 @@ function AddProduct() {
     axios
       .post("https://localhost:7158/api/Products", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
-        navigate("/produtcts");
+        navigate("/products");
       });
   }
 

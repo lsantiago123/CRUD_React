@@ -55,27 +55,15 @@ function AddAddress() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formAddAddressStateProvince">
           <Form.Label>State Province</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="State Province"
-            ref={addStateP}
-          />
+          <Form.Control type="text" placeholder="State Province" ref={addStateP} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formAddAddressCountryRegion">
           <Form.Label>Country Region</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Country Region"
-            ref={addCountryR}
-          />
+          <Form.Control type="text" placeholder="Country Region" ref={addCountryR} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formAddAddressPostalCode">
           <Form.Label>Postal Code</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Postal Code"
-            ref={addPostalC}
-          />
+          <Form.Control type="text" placeholder="Postal Code" ref={addPostalC} />
         </Form.Group>
         <Button variant="primary" type="button" onClick={AddAddressHandler}>
           Submit

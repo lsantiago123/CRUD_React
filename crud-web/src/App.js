@@ -41,19 +41,13 @@ function App() {
         <Route path="/addAddress" element={<AddAddress></AddAddress>}></Route>
       </Routes>
       <Routes>
-        <Route
-          path="/addCustomer"
-          element={<AddCustomer></AddCustomer>}
-        ></Route>
+        <Route path="/addCustomer" element={<AddCustomer></AddCustomer>}></Route>
       </Routes>
       <Routes>
         <Route path="/addProduct" element={<AddProduct></AddProduct>}></Route>
       </Routes>
       <Routes>
-        <Route
-          path="/updateAddress/:id"
-          element={<UpdateAddress></UpdateAddress>}
-        ></Route>
+        <Route path="/updateAddress/:id" element={<UpdateAddress></UpdateAddress>}></Route>
       </Routes>
       <Routes>
         <Route
