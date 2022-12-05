@@ -41,7 +41,27 @@ function AllProducts() {
   }
   return (
     <>
-      <Row xs={1} md={3} className="g-4 mt-1">
+      <DeleteConfirmation
+        showModal={showModal}
+        title="Delete Confirmation!"
+        body="Are you sure you want to delete this item?"
+        closeConfirmPopupHandler={closeConfirmPopupHandler}
+        deleteConfirmHandler={deleteConfirmHandler}
+      ></DeleteConfirmation>
+      <Button
+        style={{
+          position: "absolute",
+          right: "0px",
+        }}
+        variant="primary"
+        type="button"
+        onClick={() => {
+          navigate("/addProduct");
+        }}
+      >
+        Add a Product
+      </Button>
+      <Row xs={1} md={3} className="g-4 mt-1" style={{ padding: "15px" }}>
         {product.map((pd) => (
           <Col key={pd.productID}>
             <Card>
@@ -56,6 +76,28 @@ function AllProducts() {
                 <Card.Text>
                   <b>Color:</b> {pd.color}
                 </Card.Text>
+                <Button
+                  variant="primary"
+                  type="button"
+                  onClick={() => {
+                    navigate(`/updateProduct/${pd.productID}`);
+                  }}
+                >
+                  Edit
+                </Button>
+                <Button
+                  style={{
+                    color: "white",
+                    backgroundColor: "red",
+                  }}
+                  variant="danger"
+                  type="button"
+                  onClick={() => {
+                    showConfirmPopupHandler(pd.productID);
+                  }}
+                >
+                  Delete
+                </Button>
               </Card.Body>
             </Card>
           </Col>

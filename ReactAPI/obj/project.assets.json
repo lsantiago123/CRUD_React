@@ -10652,23 +10652,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\higor.mariano\\.nuget\\packages\\": {},
+    "C:\\Users\\lucas.santiago\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\higor.mariano\\Desktop\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
+      "projectUniqueName": "C:\\Users\\lucas.santiago\\Documents\\CRUD\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
       "projectName": "ReactAPI",
-      "projectPath": "C:\\Users\\higor.mariano\\Desktop\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
-      "packagesPath": "C:\\Users\\higor.mariano\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\higor.mariano\\Desktop\\CRUD_React\\ReactAPI\\obj\\",
+      "projectPath": "C:\\Users\\lucas.santiago\\Documents\\CRUD\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
+      "packagesPath": "C:\\Users\\lucas.santiago\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lucas.santiago\\Documents\\CRUD\\CRUD_React\\ReactAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\higor.mariano\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lucas.santiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -10750,7 +10750,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
