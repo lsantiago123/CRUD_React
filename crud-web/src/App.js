@@ -12,10 +12,48 @@ import UpdateCustomer from "./pages/UpdateCostumer";
 import UpdateProduct from "./pages/UpdateProduct";
 import AddCustomer from "./pages/AddCustomer";
 import AddProduct from "./pages/AddProduct";
+import Button from "react-bootstrap/Button";
+
+import { AzureAD, AuthenticationState } from "react-aad-msal";
+import { authProvider } from "./authProvider";
 
 function App() {
   return (
     <div className="App">
+      <AzureAD provider={authProvider} forceLogin={true}>
+        {({ login, logout, authenticationState, error, accountInfo }) => {
+          switch (authenticationState) {
+            case AuthenticationState.Authenticated:
+              return (
+                <p>
+                  <span>
+                    Welcome, {accountInfo.account.userName}!<br></br>
+                  </span>
+                  <Button onClick={logout}>Logout</Button>
+                </p>
+              );
+            case AuthenticationState.Unauthenticated:
+              return (
+                <div>
+                  {error && (
+                    <p>
+                      <span>
+                        An error occured during authentication, please try
+                        again!
+                      </span>
+                    </p>
+                  )}
+                  <p>
+                    <span>Hey stranger, you look new!</span>
+                    <button onClick={login}>Login</button>
+                  </p>
+                </div>
+              );
+            case AuthenticationState.InProgress:
+              return <p>Authenticating...</p>;
+          }
+        }}
+      </AzureAD>
       <h1>CRUD</h1>
       <Nav variant="tabs">
         <Nav.Link as={Link} to="/">
@@ -41,13 +79,19 @@ function App() {
         <Route path="/addAddress" element={<AddAddress></AddAddress>}></Route>
       </Routes>
       <Routes>
-        <Route path="/addCustomer" element={<AddCustomer></AddCustomer>}></Route>
+        <Route
+          path="/addCustomer"
+          element={<AddCustomer></AddCustomer>}
+        ></Route>
       </Routes>
       <Routes>
         <Route path="/addProduct" element={<AddProduct></AddProduct>}></Route>
       </Routes>
       <Routes>
-        <Route path="/updateAddress/:id" element={<UpdateAddress></UpdateAddress>}></Route>
+        <Route
+          path="/updateAddress/:id"
+          element={<UpdateAddress></UpdateAddress>}
+        ></Route>
       </Routes>
       <Routes>
         <Route
