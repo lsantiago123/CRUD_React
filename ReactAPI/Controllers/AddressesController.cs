@@ -35,7 +35,10 @@ namespace ReactAPI.Controllers
         public async Task<ActionResult<Address>> GetAddress(int id)
         {
             var address = await _context.Address.FindAsync(id);
-
+            if (address == null)
+            {
+                return NotFound();
+            }
             return Ok(address);
         }
 
@@ -44,6 +47,7 @@ namespace ReactAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddress(Address addressUp)
         {
+   
             _context.Address.Update(addressUp);
             await _context.SaveChangesAsync();
             return Ok(addressUp);

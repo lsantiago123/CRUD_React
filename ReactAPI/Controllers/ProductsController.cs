@@ -39,7 +39,7 @@ namespace ReactAPI.Controllers
                 return NotFound();
             }
 
-            return product;
+            return Ok(product);
         }
 
         // PUT: api/Products/5
