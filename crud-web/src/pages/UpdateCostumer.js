@@ -18,14 +18,16 @@ function UpdateCustomer() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://localhost:7158/api/Customers/${id}`).then((response) => {
-      addfirstName.current.value = response.data.firstName;
-      addmiddleName.current.value = response.data.middleName;
-      addlastName.current.value = response.data.lastName;
-      addcompanyName.current.value = response.data.companyName;
-      addemailAddress.current.value = response.data.emailAddress;
-      addphone.current.value = response.data.phone;
-    });
+    axios
+      .get(`https://poc-dev-api1.azurewebsites.net/api/Customers/${id}`)
+      .then((response) => {
+        addfirstName.current.value = response.data.firstName;
+        addmiddleName.current.value = response.data.middleName;
+        addlastName.current.value = response.data.lastName;
+        addcompanyName.current.value = response.data.companyName;
+        addemailAddress.current.value = response.data.emailAddress;
+        addphone.current.value = response.data.phone;
+      });
   }, []);
 
   function UpdateCustomerHandler() {
@@ -39,7 +41,10 @@ function UpdateCustomer() {
       customerID: id,
     };
     axios
-      .put("https://localhost:7158/api/Customers/${id}", payload) //tem q colocar o link aqui(1:33:00)
+      .put(
+        "https://poc-dev-api1.azurewebsites.net/api/Customers/${id}",
+        payload
+      ) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
         navigate("/Customers");
       });

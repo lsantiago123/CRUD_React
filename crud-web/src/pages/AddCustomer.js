@@ -25,7 +25,7 @@ function AddCustomer() {
       phone: addphone.current.value,
     };
     axios
-      .post("https://localhost:7158/api/Customers", payload) //tem q colocar o link aqui(1:33:00)
+      .post("https://poc-dev-api1.azurewebsites.net/api/Customers", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
         navigate("/customers");
       });

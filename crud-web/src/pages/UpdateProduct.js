@@ -15,11 +15,13 @@ function UpdateProduct() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://localhost:7158/api/Products/${id}`).then((response) => {
-      addNAME.current.value = response.data.name;
-      addPRICE.current.value = response.data.listPrice;
-      addCOLOR.current.value = response.data.color;
-    });
+    axios
+      .get(`https://poc-dev-api1.azurewebsites.net/api/Products/${id}`)
+      .then((response) => {
+        addNAME.current.value = response.data.name;
+        addPRICE.current.value = response.data.listPrice;
+        addCOLOR.current.value = response.data.color;
+      });
   }, []);
 
   function UpdateProductHandler() {
@@ -30,7 +32,7 @@ function UpdateProduct() {
       productID: id,
     };
     axios
-      .put("https://localhost:7158/api/Products/${id}", payload) //tem q colocar o link aqui(1:33:00)
+      .put("https://poc-dev-api1.azurewebsites.net/api/Products/${id}", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
         navigate("/Products");
       });

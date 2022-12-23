@@ -18,7 +18,7 @@ function AddProduct() {
       color: addCOLOR.current.value,
     };
     axios
-      .post("https://localhost:7158/api/Products", payload) //tem q colocar o link aqui(1:33:00)
+      .post("https://poc-dev-api1.azurewebsites.net/api/Products", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
         navigate("/products");
       });

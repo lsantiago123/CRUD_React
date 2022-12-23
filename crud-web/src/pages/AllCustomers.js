@@ -13,9 +13,11 @@ function AllCustomers() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://localhost:7158/api/Customers").then((response) => {
-      setCustomer(response.data);
-    });
+    axios
+      .get("https://poc-dev-api1.azurewebsites.net/api/Customers")
+      .then((response) => {
+        setCustomer(response.data);
+      });
   }, []);
 
   function showConfirmPopupHandler(customerID) {
@@ -30,7 +32,9 @@ function AllCustomers() {
 
   function deleteConfirmHandler() {
     axios
-      .delete(`https://localhost:7158/api/Customers/${itemToDelete}`)
+      .delete(
+        `https://poc-dev-api1.azurewebsites.net/api/Customers/${itemToDelete}`
+      )
       .then((response) => {
         setCustomer((existingdata) => {
           return existingdata.filter((_) => _.customerID !== itemToDelete);

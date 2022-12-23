@@ -18,7 +18,7 @@ function AddAddress() {
   function AddAddressHandler() {
     var payload = {
       //aqui tem que passar do jeito que tá na tabela (1:33:33), e é sem as aspas(1:35:12)
-      //addressID: addID.current.value,
+      //addressID: Math.random(),
       addressLine1: addAL1.current.value,
       addressLine2: addAL2.current.value,
       city: addCity.current.value,
@@ -27,7 +27,7 @@ function AddAddress() {
       postalCode: addPostalC.current.value,
     };
     axios
-      .post("https://localhost:7158/api/Addresses", payload) //tem q colocar o link aqui(1:33:00)
+      .post("https://poc-dev-api1.azurewebsites.net/api/Addresses", payload) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
         navigate("/addresses");
       });
@@ -55,15 +55,27 @@ function AddAddress() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formAddAddressStateProvince">
           <Form.Label>State Province</Form.Label>
-          <Form.Control type="text" placeholder="State Province" ref={addStateP} />
+          <Form.Control
+            type="text"
+            placeholder="State Province"
+            ref={addStateP}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formAddAddressCountryRegion">
           <Form.Label>Country Region</Form.Label>
-          <Form.Control type="text" placeholder="Country Region" ref={addCountryR} />
+          <Form.Control
+            type="text"
+            placeholder="Country Region"
+            ref={addCountryR}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formAddAddressPostalCode">
           <Form.Label>Postal Code</Form.Label>
-          <Form.Control type="text" placeholder="Postal Code" ref={addPostalC} />
+          <Form.Control
+            type="text"
+            placeholder="Postal Code"
+            ref={addPostalC}
+          />
         </Form.Group>
         <Button variant="primary" type="button" onClick={AddAddressHandler}>
           Submit

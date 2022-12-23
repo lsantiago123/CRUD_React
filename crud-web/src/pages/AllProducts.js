@@ -13,9 +13,11 @@ function AllProducts() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://localhost:7158/api/Products").then((response) => {
-      setProduct(response.data);
-    });
+    axios
+      .get("https://poc-dev-api1.azurewebsites.net/api/Products")
+      .then((response) => {
+        setProduct(response.data);
+      });
   }, []);
 
   function showConfirmPopupHandler(productID) {
@@ -30,7 +32,9 @@ function AllProducts() {
 
   function deleteConfirmHandler() {
     axios
-      .delete(`https://localhost:7158/api/Products/${itemToDelete}`)
+      .delete(
+        `https://poc-dev-api1.azurewebsites.net/api/Products/${itemToDelete}`
+      )
       .then((response) => {
         setProduct((existingdata) => {
           return existingdata.filter((_) => _.productID !== itemToDelete);

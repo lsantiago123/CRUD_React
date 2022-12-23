@@ -13,9 +13,11 @@ function AllAddresses() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://localhost:7158/api/Addresses").then((response) => {
-      setAddress(response.data);
-    });
+    axios
+      .get("https://poc-dev-api1.azurewebsites.net/api/Addresses")
+      .then((response) => {
+        setAddress(response.data);
+      });
   }, []);
 
   function showConfirmPopupHandler(addressID) {
@@ -30,7 +32,9 @@ function AllAddresses() {
 
   function deleteConfirmHandler() {
     axios
-      .delete(`https://localhost:7158/api/Addresses/${itemToDelete}`)
+      .delete(
+        `https://poc-dev-api1.azurewebsites.net/api/Addresses/${itemToDelete}`
+      )
       .then((response) => {
         setAddress((existingdata) => {
           return existingdata.filter((_) => _.addressID !== itemToDelete);

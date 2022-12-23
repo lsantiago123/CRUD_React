@@ -20,7 +20,7 @@ function UpdateAddress() {
 
   useEffect(() => {
     axios
-      .get(`https://localhost:7158/api/Addresses/${id}`) //mesmo link do axios do AddAddress 2:04:42
+      .get(`https://poc-dev-api1.azurewebsites.net/api/Addresses/${id}`) //mesmo link do axios do AddAddress 2:04:42
       .then((response) => {
         //tem que pegar como está na tabela, 2:06:00 // 2:07:55
 
@@ -48,7 +48,10 @@ function UpdateAddress() {
       addressID: id,
     };
     axios
-      .put("https://localhost:7158/api/Addresses/${id}", payload) //tem q colocar o link aqui(1:33:00)
+      .put(
+        "https://poc-dev-api1.azurewebsites.net/api/Addresses/${id}",
+        payload
+      ) //tem q colocar o link aqui(1:33:00)
       .then((response) => {
         navigate("/addresses");
       });
