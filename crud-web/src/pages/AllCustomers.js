@@ -4,32 +4,11 @@ import Table from "react-bootstrap/Table";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import DeleteConfirmation from "../components/DeleteConfirmation";
-import PaginationSelector from "../components/paginationSelector";
-import PaginationComponent from "../components/PaginationComponent";
 
 function AllCustomers() {
   const [customer, setCustomer] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
-	const [itensPerPage, setItensPerPage] = useState(5);
-	const [totalItens, setTotalItens] = useState(0);
-
-  const fetchData = () => {
-		fetch(`http://localhost:3000/itens?itensPerPage=${itensPerPage}&page=${currentPage}`, { method: "GET" })
-			.then(response => response.json())
-			.then(result => {
-				setCustomer(result)
-			})
-	}
-
-	const dataQuantity = () => {
-		fetch(`http://localhost:3000/count`, { method: "GET" })
-			.then(response => response.json())
-			.then(result => {
-				setTotalItens(result.count)
-			})
-	}
 
   const navigate = useNavigate();
 
@@ -64,22 +43,6 @@ function AllCustomers() {
         setShowModal(false);
       });
   }
-
-  useEffect(() => {
-		setCurrentPage(0);
-		fetchData();
-	}, [itensPerPage]);
-
-	useEffect(() => {
-		fetchData()
-	}, [currentPage])
-
-	useEffect(() => {
-		dataQuantity();
-		fetchData();
-	}, [])
-
-	const pages = Math.ceil(totalItens / itensPerPage);
 
   return (
     <>
@@ -152,18 +115,6 @@ function AllCustomers() {
               </Button>
             </tr>
           ))}
-          <div className={"Row"}>
-				<PaginationSelector
-					itensPerPage={itensPerPage}
-					setItensPerPage={setItensPerPage}
-				/>
-				<PaginationComponent
-					pages={pages}
-					currentPage={currentPage}
-					itensPerPage={itensPerPage}
-					setCurrentPage={setCurrentPage}
-				/>
-			</div>
         </tbody>
       </Table>
     </>

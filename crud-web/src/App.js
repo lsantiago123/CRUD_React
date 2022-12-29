@@ -13,6 +13,7 @@ import UpdateProduct from "./pages/UpdateProduct";
 import AddCustomer from "./pages/AddCustomer";
 import AddProduct from "./pages/AddProduct";
 import Button from "react-bootstrap/Button";
+
 import { AzureAD, AuthenticationState } from "react-aad-msal";
 import { authProvider } from "./authProvider";
 
@@ -28,7 +29,7 @@ function App() {
                   <span>
                     Welcome, {accountInfo.account.userName}!<br></br>
                   </span>
-                  <Button variant="danger" onClick={logout}>Logout</Button>
+                  <Button onClick={logout}>Logout</Button>
                   <h1>CRUD</h1>
                   <Nav variant="tabs">
                     <Nav.Link as={Link} to="/">

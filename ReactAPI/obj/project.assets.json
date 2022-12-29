@@ -10652,24 +10652,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\higor.mariano\\.nuget\\packages\\": {}
+    "C:\\Users\\lucas.santiago\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\higor.mariano\\Desktop\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
+      "projectUniqueName": "C:\\Users\\lucas.santiago\\Documents\\CRUD\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
       "projectName": "ReactAPI",
-      "projectPath": "C:\\Users\\higor.mariano\\Desktop\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
-      "packagesPath": "C:\\Users\\higor.mariano\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\higor.mariano\\Desktop\\CRUD_React\\ReactAPI\\obj\\",
+      "projectPath": "C:\\Users\\lucas.santiago\\Documents\\CRUD\\CRUD_React\\ReactAPI\\ReactAPI.csproj",
+      "packagesPath": "C:\\Users\\lucas.santiago\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lucas.santiago\\Documents\\CRUD\\CRUD_React\\ReactAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\higor.mariano\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\lucas.santiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
