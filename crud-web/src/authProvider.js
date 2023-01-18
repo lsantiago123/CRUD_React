@@ -9,7 +9,7 @@ const config = {
     redirectUri: "http://localhost:3000/",
   },
   cache: {
-    cacheLocation: "localStorage",
+    cacheLocation: "sessionStorage",
     storeAuthStateInCookie: true,
   },
 };
