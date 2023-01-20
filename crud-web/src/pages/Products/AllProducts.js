@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import DeleteConfirmation from "../components/DeleteConfirmation";
+import DeleteConfirmation from "../../components/DeleteConfirmation";
 
 function AllProducts() {
   const [product, setProduct] = useState([]);

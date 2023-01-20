@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import DeleteConfirmation from "../components/DeleteConfirmation";
+import DeleteConfirmation from "../../components/DeleteConfirmation";
 
-function AllCustomers() {
-  const [customer, setCustomer] = useState([]);
+function AllAddresses() {
+  const [address, setAddress] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(0);
 
@@ -14,15 +14,15 @@ function AllCustomers() {
 
   useEffect(() => {
     axios
-      .get("https://poc-dev-api1.azurewebsites.net/api/Customers")
+      .get("https://poc-dev-api1.azurewebsites.net/api/Addresses")
       .then((response) => {
-        setCustomer(response.data);
+        setAddress(response.data);
       });
   }, []);
 
-  function showConfirmPopupHandler(customerID) {
+  function showConfirmPopupHandler(addressID) {
     setShowModal(true);
-    setItemToDelete(customerID); //2:35:37
+    setItemToDelete(addressID); //2:35:37
   }
 
   function closeConfirmPopupHandler() {
@@ -33,11 +33,11 @@ function AllCustomers() {
   function deleteConfirmHandler() {
     axios
       .delete(
-        `https://poc-dev-api1.azurewebsites.net/api/Customers/${itemToDelete}`
+        `https://poc-dev-api1.azurewebsites.net/api/Addresses/${itemToDelete}`
       )
       .then((response) => {
-        setCustomer((existingdata) => {
-          return existingdata.filter((_) => _.customerID !== itemToDelete);
+        setAddress((existingdata) => {
+          return existingdata.filter((_) => _.addressID !== itemToDelete);
         });
         setItemToDelete(0);
         setShowModal(false);
@@ -58,34 +58,34 @@ function AllCustomers() {
           variant="primary"
           type="button"
           onClick={() => {
-            navigate("/addCustomer");
+            navigate("/addAddress");
           }}
         >
-          Add a customer
+          Add a address
         </Button>
       </div>
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
             <th>ID</th>
-            <th>First Name</th>
-            <th>Middle Name</th>
-            <th>Last Name</th>
-            <th>Company Name</th>
-            <th>Email</th>
-            <th>Phone</th>
+            <th>City</th>
+            <th>Address Line1</th>
+            <th>Address Line2</th>
+            <th>State Province</th>
+            <th>Country Region</th>
+            <th>Postal Code</th>
           </tr>
         </thead>
         <tbody>
-          {customer.map((ct) => (
-            <tr key={ct.customerID}>
-              <th>{ct.customerID}</th>
-              <th>{ct.firstName}</th>
-              <th>{ct.middleName}</th>
-              <th>{ct.lastName}</th>
-              <th>{ct.companyName}</th>
-              <th>{ct.emailAddress}</th>
-              <th>{ct.phone}</th>
+          {address.map((ad) => (
+            <tr key={ad.addressID}>
+              <th>{ad.addressID}</th>
+              <th>{ad.city}</th>
+              <th>{ad.addressLine1}</th>
+              <th>{ad.addressLine2}</th>
+              <th>{ad.stateProvince}</th>
+              <th>{ad.countryRegion}</th>
+              <th>{ad.postalCode}</th>
               <Button
                 style={{
                   color: "white",
@@ -94,7 +94,7 @@ function AllCustomers() {
                 variant="primary"
                 type="button"
                 onClick={() => {
-                  navigate(`/updateCustomer/${ct.customerID}`);
+                  navigate(`/updateAddress/${ad.addressID}`);
                 }}
               >
                 Edit
@@ -108,7 +108,7 @@ function AllCustomers() {
                 variant="danger"
                 type="button"
                 onClick={() => {
-                  showConfirmPopupHandler(ct.customerID);
+                  showConfirmPopupHandler(ad.addressID);
                 }}
               >
                 Delete
@@ -121,4 +121,4 @@ function AllCustomers() {
   );
 }
 
-export default AllCustomers;
+export default AllAddresses;
